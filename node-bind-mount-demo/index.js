@@ -5,10 +5,20 @@ const dotenv = require('dotenv');
 dotenv.config();
 const app = express();
 
-app.get('/home', (req,res) => {
-    return res.json({message: 'Homecoming'});
+//changes from container
+app.get('/home', (req, res) => {
+    return res.json({ message: 'Homecoming' });
 })
 
-app.listen(process.env.PORT,()=> {
+app.get('/info', (req, res) => {
+    return res.json({ message: 'info hi' });
+})
+
+app.get('/about', (req, res) => {
+    return res.json({ message: 'about' });
+})
+
+
+app.listen(process.env.PORT, () => {
     console.log(`Started the server at PORT: ${process.env.PORT}`);
 })
